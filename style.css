@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    margin: 20px 0 30px 0;
+    text-align: center;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+}
+
+article {
+    width: 50%;
+}
+
+.names-article {
+    border: 2px solid black;
+    border-radius: 15px;
+    min-height: 250px;
+}
+
+#test-form {
+    text-align: center;
+}
+
+#send-button {
+    transform: translate(-50%, 0%);
+    margin-right: 5px;
+    width: calc(40% - 5px);
+    background-color: black;
+    color: white;
+    padding: 2.5px 0;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.to-content {
+    position: relative;
+    right: -50%;
+    margin-left: 5px;
+    transform: translate(0%, -102.5%);
+    width: calc(40% - 5px);
+    padding: 2.5px 0;
+    border-radius: 5px;
+    border-width: .5px;
+    border-color: rgb(195, 195, 195);
+}
+
+#nameInput {
+    width: 80%;
+    margin-bottom: 7.5px;
+    padding: 5px 0;
+    padding-left: 5px;
+    border-radius: 7.5px;
+    border-width: 2px;
+    border-color: black;
+}
+
+footer {
+    position: absolute;
+    top: 100%;
+    transform: translate(0%, -100%);
+    right: 50%;
+    transform: translate(50%, -100%);
+    padding-bottom: 5px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+#clear-list {
+    text-decoration: none;
+    color: black;
+    background-color: rgb(191, 190, 190);
+    position: absolute;
+    right: 40px;
+    transform: translateY(-150%);
+    padding: 2.5px 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: none;
+}
