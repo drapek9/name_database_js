@@ -11,25 +11,23 @@ const load_storage_data = function(type_inf, type_return){
     return names_data
 }
 
-const save_to_storage = function(value, where){
-    localStorage.setItem(where, JSON.stringify(value))
-}
+const save_to_storage = (value, where) => localStorage.setItem(where, JSON.stringify(value))
 
-const generateHTMLStructure = function(value){
+const generateHTMLStructure = (value) =>{
     let contentDiv = document.createElement("div")
-    let contentSpan = document.createElement("span")
+    let contentA = document.createElement("a")
     let contentButton = document.createElement("button")
 
     let anotherDiv = document.createElement("div")
 
     // nastavení vlastností
     contentButton.textContent = "Vymazat"
-    contentSpan.textContent = value.firstName
+    contentA.textContent = value.firstName
     contentButton.name = value.id
 
     // přidávání
     anotherDiv.appendChild(contentButton)
-    contentDiv.appendChild(contentSpan)
+    contentDiv.appendChild(contentA)
     contentDiv.appendChild(anotherDiv)
 
     anotherDiv.style.display = "inline-block"
@@ -39,7 +37,10 @@ const generateHTMLStructure = function(value){
     contentDiv.style.display = "flex"
     contentDiv.style.margin = "15px"
 
-    contentSpan.style.fontWeight = "700"
+    contentA.style.fontWeight = "700"
+    contentA.href = `/edit.html#${value.id}`
+    contentA.style.textDecoration = "none"
+    contentA.target = "_blank"
 
     contentButton.style.padding = "4px 7.5px"
     contentButton.style.borderRadius = "5px"
@@ -48,6 +49,12 @@ const generateHTMLStructure = function(value){
     contentButton.style.fontWeight = "700"
     contentButton.style.fontSize = "10px"
     contentButton.style.borderWidth = "0"
+
+    if (value.adult) {
+        contentA.classList.add("adult")
+    } else {
+        contentA.classList.add("no_adult")
+    }
 
     contentButton.addEventListener("click", function(event){
         let forDelIndex = load_storage_data("names", "list").findIndex(function(one){
@@ -62,7 +69,7 @@ const generateHTMLStructure = function(value){
     return contentDiv
 }
 
-const delFromLocalStorage = function(delIndex, nameList){
+const delFromLocalStorage = (delIndex, nameList) => {
     let values = JSON.parse(localStorage.getItem(nameList))
     values.splice(delIndex, 1)
 
@@ -72,7 +79,7 @@ const delFromLocalStorage = function(delIndex, nameList){
     }
 }
 
-const create_no_showed_data = function(){
+const create_no_showed_data = () => {
     let inf_p = document.createElement("p")
     inf_p.textContent = "No information showed"
 
